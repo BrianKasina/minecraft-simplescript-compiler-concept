@@ -24,9 +24,12 @@ def compile_minecraft_script(source_code):
     except CompilerError as e:
         print(f"💥 {e}")
 
+#to test error handling i will create a statement that does not adhere to the syntax of the language
+# this will raise a syntax error, which will be caught by the try except block in the compile_minecraft_script function
 if __name__ == "__main__":
     code = """
-    craft power = 64 + 1;
+    
+    craft power = ;
     mine (power > 64) {
         craft enchantment = "Efficiency V!";
     }

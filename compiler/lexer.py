@@ -11,7 +11,7 @@ class Lexer:
         #by using the imported LexError class, imported from the errors class, responsible for displaying errors to the users
         #as the compiler handled error handling as well.
         ...
-        self.token_specs = [
+        self.token_specification = [
             ('CRAFT', r'\bcraft\b'), #This is used to declare variables in the language
             ('MINE', r'\bmine\b'), # this is used to start a block of conditional, like the way an if statement would in any other language
             ('ELSE_BLOCK', r'\belse_block\b'),#this is used to represent the else statement in the language that would come after the craft keyword
@@ -40,7 +40,7 @@ class Lexer:
         tokens = []
         line_num = 1
         line_start = 0
-        regex = '|'.join(f'(?P<{name}>{pattern})' for name, pattern in self.token_specs)
+        regex = '|'.join(f'(?P<{name}>{pattern})' for name, pattern in self.token_specification)
         for match in re.finditer(regex, code):
             kind = match.lastgroup 
             value = match.group() #This gets the actual text that was matched.
